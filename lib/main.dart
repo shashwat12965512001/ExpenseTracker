@@ -54,7 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
   void readSmsMessages() async {
     debugPrint("readSmsMessages called");
     final SmsQuery query = SmsQuery();
-    final List<SmsMessage> messages = await query.querySms();
+
+    final List<SmsMessage> messages = await query.getAllSms;
+
+    // List<SmsQueryKind> kinds = [SmsQueryKind.Inbox, SmsQueryKind.Sent];
+    // final List<SmsMessage> messages = await query.querySms(kinds: kinds);
+
     debugPrint("messages length: ${messages.length}");
     if (messages.isNotEmpty) {
       debugPrint("if");
